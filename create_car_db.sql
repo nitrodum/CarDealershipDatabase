@@ -33,6 +33,9 @@ CREATE TABLE Inventory (
 CREATE TABLE SalesContracts (
 	ContractID INTEGER NOT NULL AUTO_INCREMENT,
     VIN VARCHAR(10) NOT NULL,
+    SaleDate DATE,
+    TotalPrice DECIMAL(9, 2),
+    MonthlyPrice DECIMAL(7, 2),
     PRIMARY KEY (ContractID),
     FOREIGN KEY (VIN) REFERENCES Vehicles(VIN)
     );
@@ -40,6 +43,9 @@ CREATE TABLE SalesContracts (
 CREATE TABLE LeaseContracts (
 	LeaseID INTEGER NOT NULL AUTO_INCREMENT,
     VIN VARCHAR(10) NOT NULL,
+    LeaseDate Date,
+    TotalPrice DECIMAL(9, 2),
+    MonthlyPrice DECIMAL(7, 2),
     PRIMARY KEY (LeaseID),
     FOREIGN KEY (VIN) REFERENCES Vehicles(VIN)
     );
@@ -75,17 +81,17 @@ INSERT INTO Inventory (DealershipID, VIN) VALUES
 (5, 'VIN008'),
 (5, 'VIN010');
 
-INSERT INTO SalesContracts (VIN) VALUES
-('VIN002'),
-('VIN004'),
-('VIN006'),
-('VIN008'),
-('VIN010');
+INSERT INTO SalesContracts (VIN, SaleDate, TotalPrice, MonthlyPrice) VALUES
+('VIN002', '2024-01-15', 23000.00, 400.00),
+('VIN004', '2024-02-20', 27000.00, 450.00),
+('VIN006', '2024-03-10', 45000.00, 800.00),
+('VIN008', '2024-04-05', 20000.00, 350.00),
+('VIN010', '2024-05-18', 50000.00, 900.00);
 
-INSERT INTO LeaseContracts (VIN) VALUES
-('VIN003'),
-('VIN005'),
-('VIN007'),
-('VIN001'),
-('VIN009');
+INSERT INTO LeaseContracts (VIN, LeaseDate, TotalPrice, MonthlyPrice) VALUES
+('VIN003', '2024-01-25', 28000.00, 300.00),
+('VIN005', '2024-02-14', 24000.00, 320.00),
+('VIN007', '2024-03-22', 41000.00, 500.00),
+('VIN001', '2024-04-30', 25000.00, 280.00),
+('VIN009', '2024-05-12', 32000.00, 420.00);
 
